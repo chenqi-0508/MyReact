@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class FormTest extends Component {
+    constructor(props) {
+        super(props);
+        this.txt = React.createRef();
+    }
+
     static propTypes = {
-        a: PropTypes.number.isRequired
+        // a: PropTypes.number.isRequired
     }
 
     state = {
@@ -43,7 +48,9 @@ export default class FormTest extends Component {
         ));
     }
     getFormInfo = () => {
-        console.log(this.state);
+        console.log(this);
+        this.txt.focus();
+        this.setState({});
     }
     render() {
         let chooseLove = this.getMyLove();
@@ -52,7 +59,11 @@ export default class FormTest extends Component {
                 <p>
                     <label>
                         姓名：{this.props.a}
-                        <input type="text" value={this.state.userName} name="userName"
+                        <input type="text" value={this.state.userName} name="userName" 
+                            ref={el => {
+                                console.log("ref被调用了："+el);
+                                this.txt = el
+                            }}
                             onChange={this.handleChange}/>    
                     </label>
                 </p>

@@ -1,0 +1,22 @@
+.choose-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%);
+    /* width: 80px; */
+    height: 20px;
+    /* border: 1px solid #000; */
+}
+.choose-btn {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: lightcyan;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.choose-btn:hover {
+    background-color: lightgreen;
+}
