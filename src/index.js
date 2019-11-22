@@ -5,6 +5,10 @@ import ReactDOM from 'react-dom';
 // import Test from './components/common/RadioBoxGroup/Test'
 // import Test from './components/common/Select/Test'
 // import Test from './components/FormTest'
-import Test from './components/common/Banner/Test'
+// import Test from './components/common/Banner/Test'
+// import Test from './utils/HOC/Test'
+// import Test from './context/Test'
+// import Test from './context/newContext/Test'
+import Test from './components/common/Form/Test'
 
 ReactDOM.render(<Test/>, document.getElementById('root'));
