@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import Test from './App'
 // import Test from './components/common/Pager/Test';
 // import Test from './components/common/CheckBoxGroup/Test'
 // import Test from './components/common/RadioBoxGroup/Test'
@@ -9,6 +10,7 @@ import ReactDOM from 'react-dom';
 // import Test from './utils/HOC/Test'
 // import Test from './context/Test'
 // import Test from './context/newContext/Test'
-import Test from './components/common/Form/Test'
+// import Test from './components/common/Form/Test'
+import Test from './components/StudentList/StudentWrapper'
 
 ReactDOM.render(<Test/>, document.getElementById('root'));
