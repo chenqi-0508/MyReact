@@ -77,6 +77,5 @@ function isPlainObject(obj) {
 function getRandomString(length) {
     let n = Math.random();
     n = n.toString(36).substr(2, length).split("").join(".");
-    ;
-    return n
+    return n;
 }

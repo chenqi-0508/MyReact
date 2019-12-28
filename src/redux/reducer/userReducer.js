@@ -9,7 +9,7 @@ const initialState = [{
     id: uuid(),
     no: 2,
     name: 'user2'
-}]
+}];
 
 
 export default (state = initialState, {type, payload}) => {

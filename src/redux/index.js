@@ -4,7 +4,6 @@ import reducer from './reducer'
 import * as userAction from './action/userAction'
 import uuid from 'uuid'
 
-
 const store = createStore(reducer);
 
 //监听器
