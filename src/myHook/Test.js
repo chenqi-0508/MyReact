@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, {useState, useContext, useEffect, useRef} from 'react'
 import useAllStudents from './useAllStudents'
 import useStudentsByPage from './useStudentsByPage'
 import useTimer from './useTimer'
@@ -32,6 +32,20 @@ export function Test() {
     const [page, setPage] = useState(1);
     const resp = useStudentsByPage(page, 10);
 
+    const timerRef = useRef(page);
+    useEffect(() => {
+        const timer = setInterval(() => {
+            timerRef.current++;
+            setPage(timerRef.current);
+            if (timerRef.current === 5) {
+                clearInterval(timer);
+            }
+        }, 1000);
+        return () => {
+            clearInterval(timer);
+        }
+    }, [])
+
     if (resp) {
         const stuList = resp.findByPage.map(it => (
             <li key={it.id}>{it.name}</li>
@@ -40,6 +54,7 @@ export function Test() {
         return (
             <>
                 <p>总条数：{resp.cont}</p>
+                <p>当前页数： {page}</p>
                 <ul>
                     {stuList}
                 </ul>
