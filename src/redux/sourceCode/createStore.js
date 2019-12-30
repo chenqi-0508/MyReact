@@ -1,3 +1,6 @@
+import ActionTypes from '../utils/ActionTypes'
+import isPlainObject from '../utils/isPlainObject'
+
 /**
  * @param {*} reducer
  * @param {*} defaultState
@@ -50,7 +53,7 @@ export default function createStore(reducer, defaultState) {
 
     //初始化时设置默认action并分发
     dispatch({
-        type: `@@redux/INIT${getRandomString(6)}`
+        type: ActionTypes.INIT()
     });
 
     return {
@@ -60,22 +63,6 @@ export default function createStore(reducer, defaultState) {
     }
 }
 
-/**
- * 检测obj是否为平面属性，即obj.__propto__ === Object.prototype
- * @param {*} obj
- */
-function isPlainObject(obj) {
-    if (typeof obj !== 'object') {
-        return false;
-    }
-    return Object.getPrototypeOf(obj) === Object.prototype;
-}
 
-/**
- * 获取指定长度的随机字符串
- */
-function getRandomString(length) {
-    let n = Math.random();
-    n = n.toString(36).substr(2, length).split("").join(".");
-    return n;
-}
+
+

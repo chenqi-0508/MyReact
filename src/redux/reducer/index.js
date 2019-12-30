@@ -1,4 +1,5 @@
-import {combineReducers} from 'redux'
+// import {combineReducers} from 'redux'
+import {combineReducers} from '../sourceCode/combineReducers'
 import loginUserReducer from './loginUserReducer'
 import userReducer from './userReducer'
 

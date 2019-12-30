@@ -1,19 +1,21 @@
-export default function bindActionCreators(actions, dispatch) {
+export default function bindActionCreators(actionCreators, dispatch) {
     //1.判断actions是对象还是函数
-    if (typeof actions === 'function') {
-        return function (payload) {
-            dispatch(actions(payload));
+    if (typeof actionCreators === 'function') {
+        return function (...payload) {
+            dispatch(actionCreators(...payload));
         }
-    } else if (typeof actions === 'object') {
-        const newAction = {};
-        for (const prop in actions) {
-            if (actions.hasOwnProperty(prop)) {
-                const element = actions[prop];
-                newAction[prop] = (payload) => {
-                    dispatch(element(payload));
+    } else if (typeof actionCreators === 'object') {
+        const result = {};
+        for (const prop in actionCreators) {
+            if (actionCreators.hasOwnProperty(prop)) {
+                const actionCreator = actionCreators[prop];
+                if (typeof actionCreator === "function") {
+                    result[prop] = (...payload) => {
+                        dispatch(actionCreator(...payload));
+                    }
                 }
             }
         }
-        return newAction;
-    }
+        return result;
+    } 
 }
