@@ -6,20 +6,21 @@ const actions = createActions({
         datas,
         total
     }),
-    SET_IS_LOADING: isLoading => isLoading
-});
-
-export function fetchStudent() {
-    return async function (dispatch, getState) {
-        dispatch(setIsLoading(true));
-        const condition = getState().students.condition;
-        const resp = await searchStudents(condition)
-        dispatch(setDatasAndTotal(resp.datas, resp.cont));
-        dispatch(setIsLoading(false));
+    SET_IS_LOADING: isLoading => isLoading,
+    FETCH_STUDENTS: () => {
     }
-}
+});
+// export function fetchStudent() {
+//     return async function (dispatch, getState) {
+//         dispatch(setIsLoading(true));
+//         const condition = getState().students.condition;
+//         const resp = await searchStudents(condition)
+//         dispatch(setDatasAndTotal(resp.datas, resp.cont));
+//         dispatch(setIsLoading(false));
+//     }
+// }
 
-export const {setDatasAndTotal, setIsLoading} = actions;
+export const {setDatasAndTotal, setIsLoading, fetchStudents} = actions;
 
 // export const actionTypes = {
 //     setDatasAndTotal: Symbol("setDatasAndTotal"),

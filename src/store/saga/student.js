@@ -1,16 +1,22 @@
-import {takeEvery, take} from 'redux-saga/effects'
-import {setIsLoading} from '../action/student/searchResult'
+import {takeEvery, take, put, call, select} from 'redux-saga/effects'
+import {setIsLoading, fetchStudents, setDatasAndTotal} from '../action/student/searchResult'
+import {searchStudents} from '../../services/student'
 
-function* asyncIsLoading() {
-    console.log("asyncIsLoading触发了")
+function* getFetchStudents() {
+    console.log("getFetchStudents触发了");
+    yield put(setIsLoading(true));
+    const condition = yield select(state => state.students.condition);
+    const resp = yield call(searchStudents, condition);
+    yield put(setDatasAndTotal(resp.datas, resp.cont));
+    yield put(setIsLoading(false));
 }
 
 /**
  * takeEvery指令
  */
 export default function* () {
-    yield takeEvery(setIsLoading, asyncIsLoading)
-    console.log("正在监听asyncIsLoading")
+    yield takeEvery(fetchStudents, getFetchStudents)
+    console.log("正在监听fetchStudents");
 }
 
 /**

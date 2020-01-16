@@ -1,0 +1,16 @@
+.table-wrapper {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+.table-wrapper tr {
+    height: 35px;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+    border: 1px solid #ccc;
+}

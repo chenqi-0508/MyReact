@@ -1,0 +1,14 @@
+.search-bar {
+    width: 100%;
+    height: 50px;
+    margin: 20px 8px;
+}
+
+.search-bar input {
+    margin: 0 10px;
+}
+
+.search-bar button {
+    margin-left: 10px;
+    width: 50px;
+}
